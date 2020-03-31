@@ -14,33 +14,14 @@ include_once("connections/connection.php");
 
 $con = connection();
 
-// transfer to connection.php
-// $host ="localhost";
-// $username ="root";
-// $password = "";
-// $database = "studentSystem";
 
-// $con = new mysqli($host,$username,$password,$database);
-
-// // OOP Format needed in PHP 7
-// if($con -> connect_error){
-//     echo $con->connect_error;
-// //}else{
-// //    echo "connected";
-// }
 
 $search = $_GET['search'];
 $sql = "SELECT * FROM studentList WHERE firstName LIKE '%$search%' || lastName LIKE '%$search%' ORDER BY id DESC";
 $students = $con->query($sql) or die($con->error);
 $row = $students->fetch_assoc();
 
-//print_r($row);
-//create loop statement to display the names of data
 
-// do{
-//     echo $row['firstName'] . " ". $row['lastName'] . "<br/>";
-
-// }while($row = $students->fetch_assoc())
 ?>
 
 
@@ -50,7 +31,7 @@ $row = $students->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="design/style.css">
 </head>
 <body>
     <h1>Student Management System</h1>
