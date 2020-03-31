@@ -29,7 +29,8 @@ $con = connection();
 // //    echo "connected";
 // }
 
-$sql = "SELECT * FROM studentList ORDER BY id DESC";
+$search = $_GET['search'];
+$sql = "SELECT * FROM studentList WHERE firstName LIKE '%$search%' || lastName LIKE '%$search%' ORDER BY id DESC";
 $students = $con->query($sql) or die($con->error);
 $row = $students->fetch_assoc();
 
@@ -58,7 +59,7 @@ $row = $students->fetch_assoc();
     
     <form action="result.php" method="get">
     <input type="text" name="search" id="search">
-    <button type="submit"> search</button>
+    <button type="submit"> search </button>
     </form>
     
     <?php if(isset($_SESSION['UserLogin'])){?>

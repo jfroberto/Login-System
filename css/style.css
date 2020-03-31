@@ -12,8 +12,8 @@ table {
 th,td {
     text-align:left;
     padding:8px;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid red;
 }
 tr:nth-child(even){
-    background-color: blue;
+    background-color: red;
 }
